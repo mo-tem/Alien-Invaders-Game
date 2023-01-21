@@ -1,0 +1,21 @@
+var audioBtn = document.getElementById("button");
+var backgroundAudio = new Audio('./music.mp3');
+
+// Create start button
+var audioBtn = document.createElement('button');
+audioBtn.style.backgroundColor = 'blue';
+audioBtn.style.color = 'white';
+audioBtn.style.borderRadius = '20px';
+audioBtn.style.top = '0';
+audioBtn.style.left= '90%';
+
+audioBtn.addEventListener("click", function(){
+  if(backgroundAudio.paused){
+    backgroundAudio.play();
+    audioBtn.innerHTML = "Pause";
+  } else {
+    backgroundAudio.pause();
+    audioBtn.innerHTML = "Play";
+  }
+});
+document.body.appendChild(audioBtn);
