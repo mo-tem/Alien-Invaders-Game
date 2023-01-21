@@ -24,13 +24,13 @@ Move your mouse to move your player and align yourself with an enemy. Then, shoo
 
 ### Live Demo:
 
-https://mtemkit.github.io/
+https://mtemkit.github.io/Alien-Invaders-Game/
 
 Early stages of development:
 
 <p align="left">
   <img src="images/game-start-screen.png" width="400" height="300" title="Alien Invaders Start Screen"></br>
-  <img src="images/gameplay.png" width="800" height="600" title="Alien Invaders Gameplay">
+  <img src="images/gameplay.png" width="800" height="450" title="Alien Invaders Gameplay">
 </p>
 
 ### Next Steps / Future Changes:
