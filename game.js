@@ -111,6 +111,7 @@ startBtn.addEventListener('click', function () {
                     backgroundMusic.pause();
                     musicBtn.innerHTML = "Play";
                 }
+                musicBtn.innerHTML += " Music"
             }
         });
 
@@ -124,10 +125,11 @@ startBtn.addEventListener('click', function () {
                 backgroundMusic.pause();
                 musicBtn.innerHTML = "Play";
             }
+            musicBtn.innerHTML += " Music"
         });
 
         // Set initial button text
-        musicBtn.innerHTML = "Pause";
+        musicBtn.innerHTML = "Pause Music";
 
         // Append button to body
         document.body.appendChild(musicBtn);
