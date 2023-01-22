@@ -12,7 +12,7 @@ Also adding additional functionalities and refactoring my code for simplicity.
 
 ### Languages:
 
-HTML, JavaScript (styling done entirely using JavaScript)
+HTML, JavaScript (styling done almost entirely using JavaScript)
 
 ### Hosting:
 
@@ -20,13 +20,13 @@ Github Pages
 
 ### How To Play:
 
-Move your mouse to move your player and align yourself with an enemy. Then, shoot lasers at the enemy with your space bar to score points.
+Move your mouse to move your player and align yourself with an enemy. Then, shoot lasers at the enemy with your space bar to score points. The background music will keep looping unless you press "P" to pause it. You can press "P" again to unpause the music and resume listening to it.
 
 ### Live Demo:
 
 https://mtemkit.github.io/Alien-Invaders-Game/
 
-Early stages of development:
+Early stages of development (changes made since these images were added):
 
 <p align="left">
   <img src="images/game-start-screen.png" width="400" height="300" title="Alien Invaders Start Screen"></br>
@@ -34,8 +34,6 @@ Early stages of development:
 </p>
 
 ### Next Steps / Future Changes:
-
-- Add a pause and resume functionality.
 
 - Add a "play again" functionality.
 
@@ -53,6 +51,6 @@ Early stages of development:
 
 - Game mp3 music made loopable beyond its length.
 
-- Music autoplay when it's first loaded.
-
 - Refactoring to ES6.
+
+- Use the recently added fontawesome library to include relevant icons for play/pause, start screen etc.

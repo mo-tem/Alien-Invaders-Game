@@ -46,14 +46,13 @@ startBtn.style.textDecoration = 'none';
 startBtn.style.boxShadow = '0px 0px 20px red';
 startBtn.style.transition = 'all 0.2s ease';
 
-
 // Add event listener for hover effect
-startBtn.addEventListener('mouseover', function() {
+startBtn.addEventListener('mouseover', function () {
     startBtn.style.boxShadow = '0px 0px 20px white';
 });
 
 // Add event listener to return button to normal state
-startBtn.addEventListener('mouseout', function() {
+startBtn.addEventListener('mouseout', function () {
     startBtn.style.boxShadow = '0px 0px 10px red';
 });
 
@@ -62,16 +61,80 @@ startBtn.addEventListener('mouseout', function() {
 document.body.appendChild(startBtn);
 
 
-startBtn.addEventListener('click', function() {
-    
+startBtn.addEventListener('click', function () {
+
     // Start game code here
     startBtn.style.display = 'none';
     startTitle.style.display = "none";
 
-    // Set body background color to black
     var backgroundMusic = new Audio('./sounds/music.mp3');
     backgroundMusic.play();
-    
+    backgroundMusic.loop = true;
+
+    function createMusicButton() {
+        // Create button element
+        var musicBtn = document.createElement("button");
+        musicBtn.style.backgroundColor = "red";
+        musicBtn.style.position = "absolute";
+        musicBtn.style.top = "10px";
+        musicBtn.style.right = "10px";
+        musicBtn.style.boxShadow = "0 0 10px red";
+        musicBtn.style.transition = "box-shadow 0.3s";
+        musicBtn.style.width = "120px";
+        musicBtn.style.height = "60px";
+        musicBtn.style.borderRadius = '40px';
+        musicBtn.style.zIndex = '1';
+        musicBtn.style.color = 'white';
+        musicBtn.style.fontSize = '15px';
+
+        // Add hover effect
+        musicBtn.addEventListener("mouseover", function () {
+            musicBtn.style.boxShadow = "0 0 20px white";
+        });
+        musicBtn.addEventListener("mouseout", function () {
+            musicBtn.style.boxShadow = "0 0 10px red";
+        });
+
+
+        // Add event listener to the document to check for key presses
+        document.addEventListener('keydown', function (event) {
+            if (event.code === 'Space') {
+                event.preventDefault();
+                // Code to fire laser
+                // ...
+            } else if (event.code === 'KeyP') {
+                // Code to pause or unpause the music
+                if (backgroundMusic.paused) {
+                    backgroundMusic.play();
+                    musicBtn.innerHTML = "Pause";
+                } else {
+                    backgroundMusic.pause();
+                    musicBtn.innerHTML = "Play";
+                }
+            }
+        });
+
+
+        // Add event listener to button
+        musicBtn.addEventListener("click", function () {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                musicBtn.innerHTML = "Pause";
+            } else {
+                backgroundMusic.pause();
+                musicBtn.innerHTML = "Play";
+            }
+        });
+
+        // Set initial button text
+        musicBtn.innerHTML = "Pause";
+
+        // Append button to body
+        document.body.appendChild(musicBtn);
+    }
+
+    createMusicButton();
+
     //-----------------------------------------GAME----------------------------------
     //game background image
     var background = document.createElement('img');
@@ -83,7 +146,7 @@ startBtn.addEventListener('click', function() {
     background.style.height = '100%';
     background.style.zIndex = '-1';
     document.body.appendChild(background);
-    
+
     // player image
     var player = document.createElement('img');
     player.src = './images/player-img.png';
@@ -97,7 +160,7 @@ startBtn.addEventListener('click', function() {
     document.body.appendChild(player);
     player.style.backgroundColor = 'none';
     player.style.filter = "drop-shadow(0 0 5px white)";
-    
+
     //moving player left and right
     document.addEventListener('mousemove', function (event) {
         var left = event.clientX - player.offsetWidth / 2;
@@ -110,9 +173,10 @@ startBtn.addEventListener('click', function() {
             player.style.left = left + 'px';
         }
     });
-    
+
     document.addEventListener('keydown', function (event) {
-        if (event.keyCode === 32) {
+        if (event.code === 'Space') {
+            event.preventDefault();
             //laser firing with space bar
             var laser = document.createElement('img');
             laser.src = './images/lasers-img.png';
@@ -136,7 +200,7 @@ startBtn.addEventListener('click', function() {
             }, 10);
         }
     });
-    
+
     var enemyInterval = setInterval(function () {
         var enemy = document.createElement('img');
         enemy.src = './images/enemy-img.png';
@@ -154,7 +218,7 @@ startBtn.addEventListener('click', function() {
             }
         }, 10);
     }, 1000);
-    
+
     //scoring
     var score = 0;
     var scoreElement = document.createElement('div');
@@ -183,7 +247,7 @@ startBtn.addEventListener('click', function() {
             }
         }
     }, 10);
-    
+
     //collisions
     function isCollision(a, b) {
         var aRect = a.getBoundingClientRect();
