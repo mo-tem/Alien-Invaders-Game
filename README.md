@@ -49,8 +49,6 @@ Early stages of development (changes made since these images were added):
 
 - Celebration for each x10 milestone (level up sound effect, and randomly chosen congratularly image).
 
-- Game mp3 music made loopable beyond its length.
-
 - Refactoring to ES6.
 
 - Use the recently added fontawesome library to include relevant icons for play/pause, start screen etc.
